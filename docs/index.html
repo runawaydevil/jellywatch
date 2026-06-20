@@ -3,27 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Biblioteca de mídia pessoal">
   <title>JellyWatch</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>JellyWatch</h1>
-    <div id="summary" class="summary"></div>
-    <div class="controls">
-      <input id="q" type="search" placeholder="Buscar em toda a biblioteca..." autocomplete="off">
-      <span id="search-count" class="count"></span>
+  <div id="top">
+    <div id="brand">
+      <span id="logo">◈</span>
+      <span id="site-name">JellyWatch</span>
     </div>
-    <div id="meta" class="meta"></div>
-  </header>
+    <div id="search-wrap">
+      <input id="q" type="search" placeholder="buscar na biblioteca..." autocomplete="off" spellcheck="false">
+      <span id="search-hint"></span>
+    </div>
+    <div id="stats"></div>
+  </div>
 
-  <main id="content">
-    <p class="loading">Carregando...</p>
+  <main id="main">
+    <div id="skeleton">
+      <div class="sk-section"></div>
+      <div class="sk-section"></div>
+      <div class="sk-section"></div>
+    </div>
   </main>
 
-  <footer>
-    <p>JellyWatch</p>
-  </footer>
+  <div id="updated"></div>
 
   <script src="app.js"></script>
 </body>
