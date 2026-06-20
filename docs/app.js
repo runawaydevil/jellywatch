@@ -4,15 +4,15 @@
   var RECENT = 20;
 
   var TYPES = [
-    { key: "movie",        label: "Filmes",       cols: ["Titulo","Ano","Duracao","Generos"] },
-    { key: "series",       label: "Series",       cols: ["Titulo","Ano","Generos"] },
-    { key: "episode",      label: "Episodios",    cols: ["Serie","Ep.","Titulo","Duracao"] },
-    { key: "audio",        label: "Musicas",      cols: ["Titulo","Artista","Album","Duracao"] },
-    { key: "music_album",  label: "Albums",       cols: ["Titulo","Artista","Ano"] },
-    { key: "music_artist", label: "Artistas",     cols: ["Nome"] },
-    { key: "book",         label: "Livros",       cols: ["Titulo","Ano","Generos"] },
-    { key: "music_video",  label: "Music Videos", cols: ["Titulo","Artista","Ano","Duracao"] },
-    { key: "audiobook",    label: "Audiobooks",   cols: ["Titulo","Ano","Duracao"] },
+    { key: "movie",        label: "Movies",       cols: ["Title","Year","Runtime","Genres"] },
+    { key: "series",       label: "Series",       cols: ["Title","Year","Genres"] },
+    { key: "episode",      label: "Episodes",     cols: ["Series","Ep.","Title","Runtime"] },
+    { key: "audio",        label: "Tracks",       cols: ["Title","Artist","Album","Runtime"] },
+    { key: "music_album",  label: "Albums",       cols: ["Title","Artist","Year"] },
+    { key: "music_artist", label: "Artists",      cols: ["Name"] },
+    { key: "book",         label: "Books",        cols: ["Title","Year","Genres"] },
+    { key: "music_video",  label: "Music Videos", cols: ["Title","Artist","Year","Runtime"] },
+    { key: "audiobook",    label: "Audiobooks",   cols: ["Title","Year","Runtime"] },
   ];
 
   var byType = {};
@@ -38,7 +38,7 @@
       }
 
       if (data.generated_at) {
-        updEl.textContent = "atualizado " + fmtDate(data.generated_at);
+        updEl.textContent = "updated " + fmtDate(data.generated_at);
       }
 
       if (data.counts) {
@@ -94,7 +94,7 @@
       });
       var recent = sorted.slice(0, RECENT);
       var countText = items.length > RECENT
-        ? RECENT + " de " + items.length.toLocaleString()
+        ? RECENT + " of " + items.length.toLocaleString()
         : items.length.toLocaleString();
 
       html += "<div class='section'>";
@@ -108,7 +108,7 @@
     }
 
     if (!html) {
-      html = "<div id='no-results'>Nenhum item encontrado.</div>";
+      html = "<div id='no-results'>No items found.</div>";
     }
 
     mainEl.innerHTML = html;
@@ -131,10 +131,10 @@
       ) results.push(r);
     }
 
-    hintEl.textContent = results.length + " resultado" + (results.length !== 1 ? "s" : "");
+    hintEl.textContent = results.length + " result" + (results.length !== 1 ? "s" : "");
 
     if (!results.length) {
-      mainEl.innerHTML = "<div id='no-results'>Nenhum resultado para &ldquo;" + esc(q) + "&rdquo;</div>";
+      mainEl.innerHTML = "<div id='no-results'>No results for &ldquo;" + esc(q) + "&rdquo;</div>";
       return;
     }
 
@@ -154,9 +154,9 @@
     mainEl.innerHTML =
       "<div class='section'>" +
       "<div class='section-head'><div class='section-dot'></div>" +
-      "<span class='section-title'>Resultados</span></div>" +
+      "<span class='section-title'>Results</span></div>" +
       "<table class='tbl'><thead><tr>" +
-      "<th>Tipo</th><th>Titulo</th><th>Info</th><th>Ano</th>" +
+      "<th>Type</th><th>Title</th><th>Info</th><th>Year</th>" +
       "</tr></thead><tbody>" + rows + "</tbody></table></div>";
   }
 
@@ -269,7 +269,7 @@
     try {
       var d = new Date(iso);
       if (isNaN(d.getTime())) return iso;
-      return d.toLocaleDateString("pt-BR", { day:"2-digit", month:"short", year:"numeric", hour:"2-digit", minute:"2-digit" });
+      return d.toLocaleDateString("en-GB", { day:"2-digit", month:"short", year:"numeric", hour:"2-digit", minute:"2-digit" });
     } catch(ex) { return iso; }
   }
 
