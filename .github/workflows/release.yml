@@ -65,7 +65,7 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Build plugin
-        run: dotnet publish plugin/Jellyfin.Plugin.MovieCatalog.csproj -c Release -o publish
+        run: dotnet publish plugin/Jellyfin.Plugin.MediaCatalog.csproj -c Release -o publish
 
       - name: Assemble artifact
         id: pack
@@ -73,9 +73,9 @@ jobs:
           set -euo pipefail
           tag="${GITHUB_REF_NAME}"
           stage="$(mktemp -d)"
-          cp publish/Jellyfin.Plugin.MovieCatalog.dll "$stage/"
+          cp publish/Jellyfin.Plugin.JellyWatch.dll "$stage/"
           cp plugin/meta.json "$stage/"
-          zipname="jellyfin-movie-catalog-${tag}.zip"
+          zipname="jellywatch-${tag}.zip"
           (cd "$stage" && zip -r "${GITHUB_WORKSPACE}/${zipname}" .)
           md5="$(md5sum "${zipname}" | cut -d' ' -f1)"
           echo "MD5 checksum: ${md5}"
