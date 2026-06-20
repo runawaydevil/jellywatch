@@ -48,12 +48,8 @@ build/
 Thumbs.db
 desktop.ini
 
-# --- Claude Code worktrees ---
-.claude/worktrees/
-
-# --- Claude Code local-only state (per-clone; never committed) ---
-.claude/settings.local.json
-.claude/scheduled_tasks.lock
+# --- Claude Code (local only; never committed) ---
+.claude/
 
 # --- Dev Jellyfin instance (lives at D:\jf-dev\ but listed here in case dev
 # files leak into the repo path; the canonical purge is `Remove-Item -Recurse -Force D:\jf-dev\`) ---
