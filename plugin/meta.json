@@ -1,0 +1,11 @@
+{
+  "guid": "a12a453e-31f7-46e2-9968-d92580109f24",
+  "name": "JellyWatch",
+  "description": "JellyWatch: mirrors your full Jellyfin library to a GitHub-hosted JSON for off-network browsing.",
+  "owner": "runawaydevil",
+  "category": "General",
+  "version": "0.2.0.0",
+  "targetAbi": "10.11.0.0",
+  "framework": "net9.0",
+  "overview": "JellyWatch pushes a catalog.json snapshot (movies, shows, music, books and more) to a configured GitHub repo on library changes."
+}
