@@ -8,27 +8,57 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="top">
+  <header id="top">
     <div id="brand">
       <span id="logo">◈</span>
       <span id="site-name">JellyWatch</span>
     </div>
     <div id="search-wrap">
-      <input id="q" type="search" placeholder="search library..." autocomplete="off" spellcheck="false">
+      <input id="q" type="search" placeholder="Search library..." autocomplete="off" spellcheck="false">
       <span id="search-hint"></span>
     </div>
     <div id="stats"></div>
+  </header>
+
+  <nav id="tabs-wrap">
+    <div id="tabs"></div>
+  </nav>
+
+  <div id="toolbar">
+    <span id="page-info"></span>
+    <div id="sort-wrap">
+      <label for="sort">Sort</label>
+      <select id="sort">
+        <option value="date_desc">Newest first</option>
+        <option value="date_asc">Oldest first</option>
+        <option value="title_asc">Title A-Z</option>
+        <option value="title_desc">Title Z-A</option>
+        <option value="year_desc">Year desc</option>
+        <option value="year_asc">Year asc</option>
+      </select>
+    </div>
   </div>
 
   <main id="main">
     <div id="skeleton">
-      <div class="sk-section"></div>
-      <div class="sk-section"></div>
-      <div class="sk-section"></div>
+      <div class="sk-row"></div>
+      <div class="sk-row"></div>
+      <div class="sk-row"></div>
+      <div class="sk-row"></div>
+      <div class="sk-row"></div>
     </div>
   </main>
 
-  <div id="updated"></div>
+  <nav id="pagination"></nav>
+
+  <div id="detail-overlay" hidden>
+    <div id="detail-panel">
+      <button id="detail-close" aria-label="Close">✕</button>
+      <div id="detail-body"></div>
+    </div>
+  </div>
+
+  <footer id="updated"></footer>
 
   <script src="app.js"></script>
 </body>
