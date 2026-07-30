@@ -31,10 +31,4 @@ public class PluginConfiguration : BasePluginConfiguration
     /// config; document narrow scoping on the settings page.
     /// </summary>
     public string PatToken { get; set; } = string.Empty;
-
-    /// <summary>
-    /// Quiet window after the last library change before pushing.
-    /// Coalesces burst events during a library scan.
-    /// </summary>
-    public int DebounceSeconds { get; set; } = 30;
 }

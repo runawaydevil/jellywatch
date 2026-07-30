@@ -52,13 +52,11 @@
                     </div>
                 </div>
 
-                <div class="inputContainer">
-                    <label for="debounceSeconds">Debounce Seconds</label>
-                    <input is="emby-input" type="number" id="debounceSeconds" min="5" value="30" required />
-                    <div class="fieldDescription">
-                        Quiet window after the last library change before pushing.
-                        30 seconds is a good default; raise it if your scans produce noisy events.
-                    </div>
+                <div class="fieldDescription" style="margin-top: 1em;">
+                    Sync runs automatically once a week (Friday 18:00, server local time).
+                    Adjust the day and time under
+                    <strong>Dashboard &rarr; Scheduled Tasks &rarr; JellyWatch catalog sync</strong>,
+                    where you can also run it on demand.
                 </div>
 
                 <br />
@@ -85,7 +83,6 @@
                 document.querySelector('#branch').value = config.Branch || 'main';
                 document.querySelector('#jsonPath').value = config.JsonPath || 'docs/catalog.json';
                 document.querySelector('#patToken').value = config.PatToken || '';
-                document.querySelector('#debounceSeconds').value = config.DebounceSeconds || 30;
                 Dashboard.hideLoadingMsg();
             });
         });
@@ -99,7 +96,6 @@
                 config.Branch = document.querySelector('#branch').value;
                 config.JsonPath = document.querySelector('#jsonPath').value;
                 config.PatToken = document.querySelector('#patToken').value;
-                config.DebounceSeconds = parseInt(document.querySelector('#debounceSeconds').value, 10);
                 ApiClient.updatePluginConfiguration(JellyWatchConfig.pluginUniqueId, config).then(function (result) {
                     Dashboard.processPluginConfigurationUpdateResult(result);
                 });

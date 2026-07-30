@@ -30,9 +30,9 @@ public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
     public override string Description => "JellyWatch: mirrors the full media library (movies, shows, music, books and more) to a GitHub-hosted JSON for off-network browsing.";
 
     /// <summary>
-    /// Static accessor so non-DI sites (the scheduled task entry, the
-    /// debouncer, the pusher) can read the latest configuration without
-    /// having to capture it at construction time.
+    /// Static accessor so the pusher can read the latest configuration on
+    /// every push without capturing it at construction time (lets PAT and
+    /// repo settings rotate without a restart).
     /// </summary>
     public static Plugin? Instance { get; private set; }
 
